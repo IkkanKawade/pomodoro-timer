@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ポモドーロタイマー</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>ポモドーロタイマー</h1>
+        
+        <div class="timer-display">
+            <div id="time" class="time">25:00</div>
+            <div id="session-info" class="session-info">作業時間</div>
+        </div>
+        
+        <div class="controls">
+            <button id="start-btn" class="btn btn-primary">開始</button>
+            <button id="pause-btn" class="btn btn-secondary" disabled>一時停止</button>
+            <button id="reset-btn" class="btn btn-danger">リセット</button>
+        </div>
+        
+        <div class="settings">
+            <h2>設定</h2>
+            <div class="setting-item">
+                <label for="work-duration">作業時間（分）:</label>
+                <input type="number" id="work-duration" min="1" max="60" value="25">
+            </div>
+            <div class="setting-item">
+                <label for="short-break">短い休憩（分）:</label>
+                <input type="number" id="short-break" min="1" max="30" value="5">
+            </div>
+            <div class="setting-item">
+                <label for="long-break">長い休憩（分）:</label>
+                <input type="number" id="long-break" min="1" max="60" value="15">
+            </div>
+            <div class="setting-item">
+                <label for="sessions-before-long">長い休憩までのセッション数:</label>
+                <input type="number" id="sessions-before-long" min="1" max="10" value="4">
+            </div>
+        </div>
+        
+        <div class="stats">
+            <h2>統計</h2>
+            <p>完了したポモドーロ: <span id="completed-pomodoros">0</span></p>
+            <p>今日の作業時間: <span id="total-time">0分</span></p>
+        </div>
+    </div>
+    
+    <audio id="notification-sound" preload="auto">
+        <source src="notification.mp3" type="audio/mpeg">
+    </audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>
